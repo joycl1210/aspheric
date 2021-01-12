@@ -23,7 +23,7 @@ The user specifies in the code various parameters for the lens and the simulatio
 
 The first figure shows the sag of the plano-convex lens (blue line on the left) and the specified number of rays equally repartited on the surface according to the beam diameter. The rays propagate for the distance specified by the user. Note that the vertex of the lens is coincident with the axial distance equal to zero. 
 
-<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/raytracing.png" alt="raytracing" style="zoom:50%;" />
+<img src="images/raytracing.png" alt="raytracing" style="zoom:50%;" />
 
 
 
@@ -31,7 +31,7 @@ The first figure shows the sag of the plano-convex lens (blue line on the left) 
 
 The second figure displays the ray fan plot: the distance to the axis at the focal spot in respect to the height of the incident ray. This plots gives rapid information about the amount of spherical aberration produced by the lens. 
 
-<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/rayfanplot.png" alt="rayfanplot" style="zoom:50%;" />
+<img src="images/rayfanplot.png" alt="rayfanplot" style="zoom:50%;" />
 
 ## Theory behind the code
 
@@ -70,17 +70,17 @@ w = 50
 
 Notice that we chose a lens diameter of 60 mm and a beam diameter that almost covers all its aperture (50 mm). On the raytracing figure, one can clearly see the presence of the spherical aberration.
 
-<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/raytracing_spheric.png" alt="raytracing_spheric" style="zoom:50%;" />
+<img src="images/raytracing_spheric.png" alt="raytracing_spheric" style="zoom:50%;" />
 
 
 
 When we rise the number of rays $n_{ray}$ to 500 to have a smoother rayfan plot, one can get the following graph:
 
-<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/rayfanplot_spheric.png" alt="rayfanplot_spheric" style="zoom:50%;" /> 
+<img src="images/rayfanplot_spheric.png" alt="rayfanplot_spheric" style="zoom:50%;" /> 
 
 The shape of the curve shows that we have *** aberration. The obtained value of 10 confirms that we have great amount of aberrations. Let's run the code again, but with lower values of the beam diameter.
 
-<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/spheric_beam_diameter.png"  />
+<img src="images/spheric_beam_diameter.png"  />
 
 Thus, we conclude that the use of a spherical lens is a good choice when the paraxial approximation is valid.
 
