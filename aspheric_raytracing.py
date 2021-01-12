@@ -2,29 +2,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-# Define user parameters
-# kappa: conic constant
-# d: diameter of the plano convex lens
-# R: radius of curvature of the lens
-# n: refractive index of the lens
-# L: propagation length behind the lens
-# n_ray: number of rays incident on the surface
-# m: number of points that constitute the aspheric surface
 kappa = 0
 d = 60
-R = -50.23
+f = 100
 n = 1.5168
 L = 150
-n_ray = 50
-n_pt = 100
-w = 50
+n_ray = 500
+n_pt = 13
+w = 5
 
 if (d < w):
     exit('The beam diameter cannot be larger than the diameter of the lens')
 
 rmax = d/2
-f = -1/((1/R)*(n-1))
-print("The focal length is:", f, "mm")
+R = -(n-1)*f
 
 # Calculate the surface of the lens and plot
 
@@ -64,7 +55,7 @@ for i in range(len(r_ray)):
 # Ray tracing of the deflected rays
 rtrace = plt.figure(1)
 for i in range(len(r_ray)):
-    x2 = [z_ray[i], z_ray[i]+L]
+    x2 = [z_ray[i], L]
     y2 = [r_ray[i], L*np.tan(theta_2[i]) + r_ray[i]]
     plt.plot(x2, y2, color='red')
 plt.gca().set_aspect('equal', adjustable='box')
