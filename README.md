@@ -23,7 +23,7 @@ The user specifies in the code various parameters for the lens and the simulatio
 
 The first figure shows the sag of the plano-convex lens (blue line on the left) and the specified number of rays equally repartited on the surface according to the beam diameter. The rays propagate for the distance specified by the user. Note that the vertex of the lens is coincident with the axial distance equal to zero. 
 
-<img src="images/raytracing.png" alt="raytracing" style="zoom:50%;" />
+<img src="images/raytracing.png" alt="raytracing" width=200" />
 
 
 
