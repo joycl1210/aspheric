@@ -21,11 +21,17 @@ The user specifies in the code various parameters for the lens and the simulatio
 
 ### Raytracing
 
-<img src="/Users/mireillequemener/Documents/GitHub/aspheric/raytracing.png" alt="raytracing" style="zoom:33%;" />
+The first figure shows the sag of the plano-convex lens (blue line on the left) and the specified number of rays equally repartited on the surface according to the beam diameter. The rays propagate for the distance specified by the user. Note that the vertex of the lens is coincident with the axial distance equal to zero. 
+
+<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/raytracing.png" alt="raytracing" style="zoom:50%;" />
+
+
 
 ### Ray fan plot
 
+The second figure displays the ray fan plot: the distance to the axis at the focal spot in respect to the height of the incident ray. This plots gives rapid information about the amount of spherical aberration produced by the lens. 
 
+<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/rayfanplot.png" alt="rayfanplot" style="zoom:50%;" />
 
 ## Examples
 
