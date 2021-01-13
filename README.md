@@ -37,7 +37,7 @@ The second figure displays the ray intercept plot: the vertical distance to the 
 
 The third graph gives an idea about the longitudinal spread of the focus point. The position (0,0) on the graph represents the paraxial focus. For an abberated lens, only the ray which pass right in the middle of the lens without being deviated goes to the real (or paraxial) focal point. For higher incident rays in respect to the optical axis, the amount of aberration is larger, thus the distance to the real focal point is longer.
 
-### <img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/longitudinal_aberration.png" alt="longitudinal_aberration" style="zoom:50%;" /> 
+### <img src="images/longitudinal_aberration.png" alt="longitudinal_aberration" style="zoom:50%;" /> 
 
 ## Theory behind the code
 
