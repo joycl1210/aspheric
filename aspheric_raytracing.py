@@ -7,18 +7,19 @@ d = 60
 f = 100
 n = 1.5168
 L = 150
-n_ray = 500
+n_ray = 200
 n_pt = 13
-w = 5
+w = 50
 
+# Condition on illumination
 if (d < w):
     exit('The beam diameter cannot be larger than the diameter of the lens')
 
 rmax = d/2
 R = -(n-1)*f
 
-# Calculate the surface of the lens and plot
-
+# Calculate the sag of the lens (z) and plot
+# Height parameter of the surface
 r_surf = np.arange(-rmax, rmax, rmax/n_pt)
 z = []
 for i in range(len(r_surf)):
@@ -26,10 +27,12 @@ for i in range(len(r_surf)):
 plt.plot(z, r_surf)
 
 
-# Raytracing
+# RAYTACING
 
 # Incident rays tracing
+# Height of the incident rays:
 r_ray = np.arange(-w/2, w/2, w/n_ray)
+# Calculation of the sag at ray height
 z_ray = []
 for i in range(len(r_ray)):
     z_ray.append(r_ray[i]**2/(R*(1+math.sqrt(1-(1+kappa)*r_ray[i]**2/R**2))))
@@ -39,11 +42,10 @@ for i in range(len(r_ray)):
     y = [r_ray[i], r_ray[i]]
     plt.plot(x, y, color='red')
 
-# Calculate the angle of the ray to the normal
+# Calculate the angle of the ray to the normal of the lens
 diff = []
 for i in range(len(r_ray)):
-    diff.append(r_ray[i]/(R*math.sqrt(1-((kappa+1)*r_ray[i]**2/R**2))))
-    
+    diff.append(r_ray[i]/(R*math.sqrt(1-((kappa+1)*r_ray[i]**2/R**2)))) 
 diff = np.arctan(diff)
 
 
@@ -56,24 +58,15 @@ for i in range(len(r_ray)):
 rtrace = plt.figure(1)
 for i in range(len(r_ray)):
     x2 = [z_ray[i], L]
-    y2 = [r_ray[i], L*np.tan(theta_2[i]) + r_ray[i]]
+    y2 = [r_ray[i], (L+abs(z_ray[i]))*np.tan(theta_2[i]) + r_ray[i]]
     plt.plot(x2, y2, color='red')
 plt.gca().set_aspect('equal', adjustable='box')
 plt.xlabel('Axial distance [mm]')
 plt.ylabel('Height [mm]')
 plt.show()
 
-# Zoom plot on the focal spot
-# zrtrace = plt.figure(2)
-# for i in range(len(r_ray)):
-    # x2 = [z_ray[i], z_ray[i]+L]
-    # y2 = [r_ray[i], L*np.tan(theta_2[i]) + r_ray[i]]
-    # plt.plot(x2, y2, color='red')
-# plt.xlim(f-0.1*f, f+0.1*f)
-# plt.ylim(-0.2, 0.2)
-# plt.show()
-
-# Ray fan plot
+# RAY INTERCEPT PLOT
+# y_f is the height of each ray at the paraxial focus
 y_f = []
 for i in range(len(r_ray)):
     y_f.append((f + abs(z_ray[i]))*np.tan(theta_2[i]) + r_ray[i])
@@ -87,4 +80,21 @@ axs.spines['bottom'].set_position('zero')
 axs.spines['top'].set_color('none')
 plt.xlabel('y')
 plt.ylabel("y'")
+plt.show()
+
+# LONGITUDINAL ABERRATION PLOT
+# f_L is the focal distance of each rays and LA is the longitudinal aberration
+f_L = []
+LA = []
+for i in range(len(z_ray)):
+    f_L.append(abs(r_ray[i]/math.tan(theta_2[i])) + z_ray[i])
+    LA.append(f_L[i]-f)
+
+print(LA)
+plt.figure(4)
+plt.plot(LA, r_ray)
+plt.ylim(0, max(r_ray))
+plt.xlabel('Longitudinal aberration [mm]')
+plt.ylabel('Ray height [mm]')
+axs.grid(True)
 plt.show()

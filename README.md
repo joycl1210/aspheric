@@ -1,4 +1,4 @@
-# Aspheric
+# Aspheric aberration and raytracing
 
 This code helps understanding the raytracing of the plano-convex aspheric lenses, the motivation of the use of the paraxial approximation and how to choose the right conic constant for the design.
 
@@ -21,17 +21,23 @@ The user specifies in the code various parameters for the lens and the simulatio
 
 ### Raytracing
 
-The first figure shows the sag of the plano-convex lens (blue line on the left) and the specified number of rays equally repartited on the surface according to the beam diameter. The rays propagate for the distance specified by the user. Note that the vertex of the lens is coincident with the axial distance equal to zero. 
+The first figure shows the sag of the plano-convex lens (blue line on the left) and the specified number of rays equally repartited on the surface according to the beam diameter. The rays propagate for the distance specified by the user. Note that the vertex of the lens is coincident with the axial distance equal to zero. One can rapidly and qualitatively observe the amount of spherical aberration by the spread of the focal spot.
 
-<img src="images/raytracing.png" alt="raytracing" width=200" />
+<img src="images/raytracing_spheric.png" alt="raytracing_spheric" style="zoom:50%;" />
 
 
 
-### Ray fan plot
+### Ray intercept plot
 
-The second figure displays the ray fan plot: the distance to the axis at the focal spot in respect to the height of the incident ray. This plots gives rapid information about the amount of spherical aberration produced by the lens. 
+The second figure displays the ray intercept plot: the vertical distance to the axis at the focal spot in respect to the height of the incident ray. Each ray constitutes a point in the figure. This plots gives rapid information about the amount of spherical aberration produced by the lens. A perfect aberration-free lens would produce a ray intercept plot which is a straight horizontal line. 
 
 <img src="images/rayfanplot.png" alt="rayfanplot" style="zoom:50%;" />
+
+### Longitudinal spherical aberration plot
+
+The third graph gives an idea about the longitudinal spread of the focus point. The position (0,0) on the graph represents the paraxial focus. For an abberated lens, only the ray which pass right in the middle of the lens without being deviated goes to the real (or paraxial) focal point. For higher incident rays in respect to the optical axis, the amount of aberration is larger, thus the distance to the real focal point is longer.
+
+### <img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/longitudinal_aberration.png" alt="longitudinal_aberration" style="zoom:50%;" /> 
 
 ## Theory behind the code
 
@@ -51,7 +57,7 @@ where $n$ is the refractive index of the material of the lens. Note that we assu
 
 ## Examples
 
-### Spherical lens
+### Spherical lens and paraxial approximation
 
 For a spherical lens, $\kappa=0$. In general, in optics, we assume that lenses have a spherical shape since we often use paraxial approximation. In this example, we will show that a spherical lens is free of sperical aberration only for rays in the paraxial region. 
 
