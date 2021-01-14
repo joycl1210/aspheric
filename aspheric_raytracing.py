@@ -2,14 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
+# User variables
 kappa = 0
 d = 60
 f = 100
 n = 1.5168
 L = 150
-n_ray = 200
-n_pt = 13
-w = 50
+n_ray = 500
+n_pt = 100
+w = 55
+
 
 # Condition on illumination
 if (d < w):
@@ -78,6 +80,7 @@ axs.spines['left'].set_position('zero')
 axs.spines['right'].set_color('none')
 axs.spines['bottom'].set_position('zero')
 axs.spines['top'].set_color('none')
+plt.title("Transverse spherical aberration")
 plt.xlabel('y')
 plt.ylabel("y'")
 plt.show()
@@ -89,11 +92,10 @@ LA = []
 for i in range(len(z_ray)):
     f_L.append(abs(r_ray[i]/math.tan(theta_2[i])) + z_ray[i])
     LA.append(f_L[i]-f)
-
-print(LA)
 plt.figure(4)
 plt.plot(LA, r_ray)
 plt.ylim(0, max(r_ray))
+plt.title("Longitudinal spherical aberration")
 plt.xlabel('Longitudinal aberration [mm]')
 plt.ylabel('Ray height [mm]')
 axs.grid(True)

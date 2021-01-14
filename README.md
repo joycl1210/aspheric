@@ -1,6 +1,8 @@
 # Aspheric aberration and raytracing
 
-This code helps understanding the raytracing of the plano-convex aspheric lenses, the motivation of the use of the paraxial approximation and how to choose the right conic constant for the design.
+This script helps understanding the raytracing of the plano-convex aspheric lenses, the motivation of the use of the paraxial approximation and how to choose the right conic constant for the lens design.
+
+Note that this code is limited to incident collimated beam while supposing that the aperture stop is placed at the plano-convex lens position. 
 
 ## User parameters
 
@@ -27,7 +29,7 @@ The first figure shows the sag of the plano-convex lens (blue line on the left) 
 
 
 
-### Ray intercept plot
+### Transverse spherical aberration
 
 The second figure displays the ray intercept plot: the vertical distance to the axis at the focal spot in respect to the height of the incident ray. Each ray constitutes a point in the figure. This plots gives rapid information about the amount of spherical aberration produced by the lens. A perfect aberration-free lens would produce a ray intercept plot which is a straight horizontal line. 
 
@@ -57,6 +59,16 @@ where $n$ is the refractive index of the material of the lens. Note that we assu
 
 ## Examples
 
+### Understanding the type of spherical aberration
+
+The type of spherical aberration can be found with the sign of the longitudinal aberration equation. When the spherical aberration has a negative sign, we say it is undercorrected. On the raytrace, one can see that as the ray height increases, the position of the ray intersection with the optical axis moves closer to the vertex of the lens. Similarly, positive spherical is called overcorrected and is generally associated with diverging elements. 
+
+Let's run the code for a BK7 lens ($n=1.5168$) with an illumination diameter close to the aperture of the lens. We will compare two lenses, one with a spherical shape ($\kappa=0$), and one with an hyperbolic shape with $\kappa=-5$. 
+
+<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/aberration_type.png" alt="aberration_type" style="zoom:8%;" />
+
+The figure above shows the typical ray intercept plots for both overcorrected and undercorrected spherical aberrations. 
+
 ### Spherical lens and paraxial approximation
 
 For a spherical lens, $\kappa=0$. In general, in optics, we assume that lenses have a spherical shape since we often use paraxial approximation. In this example, we will show that a spherical lens is free of sperical aberration only for rays in the paraxial region. 
@@ -84,9 +96,20 @@ When we rise the number of rays $n_{ray}$ to 500 to have a smoother rayfan plot,
 
 <img src="images/rayfanplot_spheric.png" alt="rayfanplot_spheric" style="zoom:50%;" /> 
 
-The shape of the curve shows that we have *** aberration. The obtained value of 10 confirms that we have great amount of aberrations. Let's run the code again, but with lower values of the beam diameter.
+The obtained value of $y'=10$ confirms that we have great amount of transverrse aberration. Let's run the code again, but with lower values of the beam diameter.
 
 <img src="images/spheric_beam_diameter.png"  />
 
 Thus, we conclude that the use of a spherical lens is a good choice when the paraxial approximation is valid.
 
+### Spherical abberation correction for a plano-convex lens
+
+Is there a value of $\kappa$ that leads to an optimized correction of the spherical aberration? In the case of our plano-convex lens, the answer is yes. It can be found in the litterature that a conic constant of $\kappa = -n^2$ minimizes the spherical aberration. Let's confirm this with our code.
+
+In the script, we choose a BK7 lens ($n=1.5168$) with a beam diameter that is close to the aperture of the lens. We define `k=-1.5168**2` . Below are the obtained figures:
+
+### Axicon
+
+In this example, we will show that the refractive axicon is simply an aspheric lens with an hyperbolic shape and a radius of curvature that tends to zero (in orde to get a sharp cone tip). 
+
+In the script, 
