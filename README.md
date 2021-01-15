@@ -25,7 +25,7 @@ The user specifies in the code various parameters for the lens and the simulatio
 
 The first figure shows the sag of the plano-convex lens (blue line on the left) and the specified number of rays equally repartited on the surface according to the beam diameter. The rays propagate for the distance specified by the user. Note that the vertex of the lens is coincident with the axial distance equal to zero. One can rapidly and qualitatively observe the amount of spherical aberration by the spread of the focal spot.
 
-<img src="images/raytracing_spheric.png" alt="raytracing_spheric" style="zoom:50%;" />
+<img src="images/raytracing_spheric.png" alt="raytracing_spheric" width="50%" />
 
 
 
@@ -33,13 +33,13 @@ The first figure shows the sag of the plano-convex lens (blue line on the left) 
 
 The second figure displays the ray intercept plot: the vertical distance to the axis at the focal spot in respect to the height of the incident ray. Each ray constitutes a point in the figure. This plots gives rapid information about the amount of spherical aberration produced by the lens. A perfect aberration-free lens would produce a ray intercept plot which is a straight horizontal line. 
 
-<img src="images/rayfanplot.png" alt="rayfanplot" style="zoom:50%;" />
+<img src="images/rayfanplot.png" alt="rayfanplot" width="50%" />
 
 ### Longitudinal spherical aberration plot
 
 The third graph gives an idea about the longitudinal spread of the focus point. The position (0,0) on the graph represents the paraxial focus. For an abberated lens, only the ray which pass right in the middle of the lens without being deviated goes to the real (or paraxial) focal point. For higher incident rays in respect to the optical axis, the amount of aberration is larger, thus the distance to the real focal point is longer.
 
-### <img src="images/longitudinal_aberration.png" alt="longitudinal_aberration" style="zoom:50%;" /> 
+### <img src="images/longitudinal_aberration.png" alt="longitudinal_aberration" width="50%" /> 
 
 ## Theory behind the code
 
@@ -65,7 +65,7 @@ The type of spherical aberration can be found with the sign of the longitudinal 
 
 Let's run the code for a BK7 lens ($n=1.5168$) with an illumination diameter close to the aperture of the lens. We will compare two lenses, one with a spherical shape ($\kappa=0$), and one with an hyperbolic shape with $\kappa=-5$. 
 
-<img src="images/aberration_type.png" alt="aberration_type" style="zoom:8%;" />
+<img src="images/aberration_type.png" alt="aberration_type" width="70%" />
 
 The figure above shows the typical ray intercept plots for both overcorrected and undercorrected spherical aberrations. 
 
@@ -88,17 +88,17 @@ w = 50
 
 Notice that we chose a lens diameter of 60 mm and a beam diameter that almost covers all its aperture (50 mm). On the raytracing figure, one can clearly see the presence of the spherical aberration.
 
-<img src="images/raytracing_spheric.png" alt="raytracing_spheric" style="zoom:50%;" />
+<img src="images/raytracing_spheric.png" alt="raytracing_spheric" width="50%" />
 
 
 
 When we rise the number of rays $n_{ray}$ to 500 to have a smoother rayfan plot, one can get the following graph:
 
-<img src="images/rayfanplot_spheric.png" alt="rayfanplot_spheric" style="zoom:50%;" /> 
+<img src="images/rayfanplot_spheric.png" alt="rayfanplot_spheric" width="50%" /> 
 
 The obtained value of $y'=10$ confirms that we have great amount of transverrse aberration. Let's run the code again, but with lower values of the beam diameter.
 
-<img src="images/spheric_beam_diameter.png"  />
+<img src="images/spheric_beam_diameter.png" width="100%"  />
 
 Thus, we conclude that the use of a spherical lens is a good choice when the paraxial approximation is valid.
 
