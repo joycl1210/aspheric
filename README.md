@@ -65,7 +65,7 @@ The type of spherical aberration can be found with the sign of the longitudinal 
 
 Let's run the code for a BK7 lens ($n=1.5168$) with an illumination diameter close to the aperture of the lens. We will compare two lenses, one with a spherical shape ($\kappa=0$), and one with an hyperbolic shape with $\kappa=-5$. 
 
-<img src="/Users/mireillequemener/Documents/GitHub/aspheric/images/aberration_type.png" alt="aberration_type" style="zoom:8%;" />
+<img src="images/aberration_type.png" alt="aberration_type" style="zoom:8%;" />
 
 The figure above shows the typical ray intercept plots for both overcorrected and undercorrected spherical aberrations. 
 
